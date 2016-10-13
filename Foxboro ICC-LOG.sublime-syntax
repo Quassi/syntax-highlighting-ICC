@@ -1,0 +1,25 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: ICC-LOG
+file_extensions:
+  - icclog
+scope: code.icclog
+variables:
+  INFO_commands: '(DONE|ECHO|)'
+  ICC_errors: '(FAIL.*!.*|FLSH)'
+  ICC_warning: '(WARN.*!.*|)'
+contexts:
+  main:
+
+# INFO COMMANDS
+    - match: \b{{INFO_commands}}\b
+      scope: string
+
+# ERRORS
+    - match: \b{{ICC_errors}}\b
+      scope: keyword.control.c
+
+# WARNINGS
+    - match: \b{{ICC_warning}}\b
+      scope: keyword.control.c

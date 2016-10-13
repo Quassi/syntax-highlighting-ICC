@@ -1,0 +1,78 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: ICC
+file_extensions:
+  - icc
+scope: code.icc
+variables:
+  ICC_commands: '(OPEN|OVERRIDE|CLOSE|GET|GETORDER|GETSEQ|GETDEF|LIST|ADD|CMPLSEQ|PUTSEQ|GETPLB|PUTPLB|CMPLPLB|DELETE|MODIFY|MOVE|COPY|INITIALIZE|UPLOAD|CHECKPOINT|SHRINK|SAVE|LOAD|TIMEOUT|LOGOPEN|LOGCLOSE|LOGSET|LOGSTAT|LOGOPTION|SHELL|CALL|EXIT|END)'
+  ICC_NONE: '(NAME.*=.|)'
+  BLOCK_TYPE: '(TYPE.*=.*|)'
+  CALCX_commands: '(\bOUT|\bINC|\bIN|\bGTO|\bBIF|\bBIZ|\bSUB|\bNOT|\bANDX|\bAND|\bOR|\bMRS|\bOSP|\bBIT|\bCLR|\bSET|\bRCL|\bDON|\bNOP|\bFF|\bCBD|\bLAC|\bBIN|\bSBD|\bPRI|\bSTM|\bDOFF|\bMUL|\bSST|\bSSZ|\bSSN|\bBIP|\bDIV|\bSE|\bRND|\bINH|\bSTL|\bBII|\bCE|\bSTH|\bRQL|\bREL|\bNOR|\bABS|\bINL|\bXOR|\bRBD|\b|\b|\b|\b|\b|\b|\b|\b|\b|\b|\b|\b|\b|\b)'
+contexts:
+  main:
+
+# ICC COMMANDS
+    - match: \b{{ICC_commands}}\b
+      scope: keyword.control.c
+
+# NON ICC COMMANDS
+    - match: \b{{ICC_NONE}}\b
+      scope: keyword.control.c
+
+# BLOCKTYPE
+    - match: '\b{{BLOCK_TYPE}}\b'
+      scope: entity.name.type
+
+# SHELL TYPICAL
+    - match: '__.*'
+      scope: entity.name.type
+
+# PARAMETER
+    - match: '\b.* = '
+      scope: support.constant
+
+# COMMENT
+    - match: '\A.*#.*'
+      scope: comment.line
+
+    - match: ';.*'
+      scope: comment.line
+
+# BLOCKNAME
+    - match: ':.*\.'
+      scope: string
+
+    - match: ':.*'
+      scope: string
+
+# CALCx OUTPUTS
+    - match: '\b.BO..'
+      scope: entity.name.type
+
+    - match: '\b.IO..'
+      scope: entity.name.type
+
+    - match: '\b.RO..'
+      scope: entity.name.type
+
+    - match: '\bxxx.BI..'
+      scope: string
+
+    - match: '\bxxx.II..'
+      scope: string
+
+    - match: '\bxxx.RI..'
+      scope: string
+
+    - match: \b{{CALCX_commands}}\b
+      scope: string
+
+
+#---
+#invalid.illegal.stray-semi-colon
+#entity.name.type
+#keyword.control.c
+#comment.line
+#storage.type
