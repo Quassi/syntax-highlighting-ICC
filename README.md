@@ -5,8 +5,8 @@ Sublime Text 3 Syntax Highlighting for ICC (Integrated Control Configurator) ICC
 
 ## How to install
 
-1. Ctrl+Shift+P → Package Control: Add Repository → https://github.com/i-akhmadullin/Sublime-CSS3
+1. Ctrl+Shift+P → Package Control: Add Repository → https://github.com/Quassi/syntax-highlighting-ICC
 
-2. Ctrl+Shift+P → Package Control: Install Package → Sublime-CSS3
+2. Ctrl+Shift+P → Package Control: Install Package → syntax-highlighting-ICC
 
-3. (in .css file) View → Syntax → Open all with current extension as... → CSS3
+3. (in .icc file) View → Syntax → Open all with current extension as... → ICC
